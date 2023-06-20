@@ -1,3 +1,23 @@
-.container {
+.container, .calc, body {
     display: flex;
+}
+
+body {
+    justify-content: center;
+}
+
+.container {
+    border: 1px solid gray;
+    flex-direction: column;
+    flex-basis: 600px;
+}
+
+.calc {
+    border: 2px solid black;
+    flex-basis: 800px;
+    background-color: rgba(224, 224, 224, 0.26);
+}
+
+h1 {
+    text-align: center;
 }
