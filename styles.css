@@ -1,4 +1,4 @@
-.container, .calc, body {
+.container, .calc, .row, body {
     display: flex;
 }
 
@@ -7,16 +7,67 @@ body {
 }
 
 .container {
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
     flex-direction: column;
-    flex-basis: 600px;
+    flex-basis: 400px;
 }
 
 .calc {
+    flex-direction: column;
     border: 2px solid black;
-    flex-basis: 800px;
+    flex-basis: 700px;
     background-color: rgba(224, 224, 224, 0.26);
 }
+
+#previous, #current {
+    padding: 0px;
+    margin: 0px;
+    background-color: rgba(164, 219, 205, 0);
+    border: 0px;
+}
+
+#previous{
+    font-size: 18px;
+}
+
+.display {
+    text-align: right;
+    padding: 20px;
+    margin: 20px;
+    background-color: rgba(139, 163, 155, 0.24);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 42px;
+    border: 2px solid rgba(139, 163, 155, 0.55);
+}
+/* .row {
+    
+} */
+
+.container.button {
+    
+    
+    margin: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    
+    font-size: 42px;
+    font-family: 'Courier New', Courier, monospace;
+}
+.row > .button {
+    padding: 20px;
+    
+}
+.row > .button:hover {
+    background-color: rgba(224, 224, 224, 0.637);
+    
+}
+#clear {
+    font-size: 22px;
+}
+
 
 h1 {
     text-align: center;
