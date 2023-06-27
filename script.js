@@ -1,4 +1,11 @@
 let firstNum, secondNum, displayValue, oper;
+const buttons = document.querySelectorAll('.button');
+buttons.forEach(b => {
+    b.addEventListener('click', e => {
+        console.log(e.target.id);
+    }
+    );
+})
 
 function add(a, b){
     return a + b;

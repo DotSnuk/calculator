@@ -6,16 +6,21 @@ body {
     justify-content: center;
 }
 
+.container.main {
+    flex-basis: 500px;
+}
 .container {
     /* border: 1px solid gray; */
     flex-direction: column;
-    flex-basis: 400px;
+    flex-basis: 300px;
+    margin: 50px;
+    align-items: center;
+    justify-content: center;
 }
 
 .calc {
     flex-direction: column;
     border: 2px solid black;
-    flex-basis: 700px;
     background-color: rgba(224, 224, 224, 0.26);
 }
 
@@ -38,17 +43,6 @@ body {
     font-family: 'Courier New', Courier, monospace;
     font-size: 42px;
     border: 2px solid rgba(139, 163, 155, 0.55);
-}
-/* .row {
-    
-} */
-
-.container.button {
-    
-    
-    margin: 50px;
-    align-items: center;
-    justify-content: center;
 }
 
 .button {
