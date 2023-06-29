@@ -1,4 +1,5 @@
 let firstNum, secondNum, displayValue, oper;
+displayValue = 0;
 const buttons = document.querySelectorAll('.button');
 buttons.forEach(b => {
     b.addEventListener('click', e => {
@@ -6,6 +7,23 @@ buttons.forEach(b => {
     }
     );
 })
+const numbs = document.querySelectorAll('.number');
+numbs.forEach(num => {
+    num.addEventListener('click', e => {
+        updateValue(e.target.id);
+    })
+})
+
+function updateValue(i){
+    const value = document.getElementById('current').innerText;
+    // if (value === '0'){
+    //     document.getElementById('current').innerText = i;
+    // } else {
+    //     document.getElementById('current').innerText = value + i;
+    // }
+    value === '0' ? document.getElementById('current').innerText = i :
+                     document.getElementById('current').innerText += i;
+}
 
 function add(a, b){
     return a + b;
