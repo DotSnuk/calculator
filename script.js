@@ -7,6 +7,8 @@ buttons.forEach(b => {
     }
     );
 })
+
+// numbers
 const numbs = document.querySelectorAll('.number');
 numbs.forEach(num => {
     num.addEventListener('click', e => {
@@ -14,16 +16,26 @@ numbs.forEach(num => {
     })
 })
 
+// operators
+const ops = document.querySelectorAll('.op');
+ops.forEach(o => {
+    firstNum = parseInt(document.getElementById('current').innerText);
+})
+
+// clear
+const clear = document.querySelector('#clear');
+clear.addEventListener('click', e => {
+    document.getElementById('current').innerText = 0;
+})
+
+
 function updateValue(i){
     const value = document.getElementById('current').innerText;
-    // if (value === '0'){
-    //     document.getElementById('current').innerText = i;
-    // } else {
-    //     document.getElementById('current').innerText = value + i;
-    // }
     value === '0' ? document.getElementById('current').innerText = i :
                      document.getElementById('current').innerText += i;
 }
+
+
 
 function add(a, b){
     return a + b;
