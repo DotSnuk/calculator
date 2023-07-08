@@ -37,9 +37,7 @@ clear.addEventListener('click', e => {
 // equal
 const equal = document.querySelector('#equal');
 equal.addEventListener('click', e => {
-    secondNum = parseInt(document.getElementById('current').innerText);
-    operate(firstNum, secondNum, oper);
-    lastOperation();
+    eq();
 })
 
 function lastOperation(){
@@ -62,6 +60,13 @@ function lastOperation(){
             break;
     }
     previous.innerText = firstNum + o + secondNum;
+}
+
+function eq(){
+    // make equal function, and make the eventlistener call this
+    secondNum = parseInt(document.getElementById('current').innerText);
+    operate(firstNum, secondNum, oper);
+    lastOperation();
 }
 
 
