@@ -1,14 +1,7 @@
 let firstNum, secondNum, displayValue, oper;
 let newNumber = false;
 oper = '';
-displayValue = 0;
-// const buttons = document.querySelectorAll('.button');
-// buttons.forEach(b => {
-//     b.addEventListener('click', e => {
-//         console.log(e.target.id);
-//     }
-//     );
-// })
+displayValue = '0';
 
 // numbers
 const numbs = document.querySelectorAll('.number');
@@ -22,7 +15,11 @@ numbs.forEach(num => {
 const ops = document.querySelectorAll('.op');
 ops.forEach(o => {
     o.addEventListener('click', e => {
-        firstNum = parseInt(document.getElementById('current').innerText);
+        if (oper !== '' && newNumber === false){
+            eq();
+            lastOperation();
+        }
+        firstNum = displayValue;
         oper = e.target.id;
         newNumber = true;
     })
@@ -30,13 +27,16 @@ ops.forEach(o => {
 
 // clear
 const clear = document.querySelector('#clear');
-clear.addEventListener('click', e => {
+clear.addEventListener('click', () => {
     document.getElementById('current').innerText = 0;
+    document.getElementById('previous').innerText = '';
+    oper = '';
+    newNumber = false;
 })
 
 // equal
 const equal = document.querySelector('#equal');
-equal.addEventListener('click', e => {
+equal.addEventListener('click', () => {
     eq();
 })
 
@@ -59,46 +59,46 @@ function lastOperation(){
         default:
             break;
     }
-    previous.innerText = firstNum + o + secondNum;
-}
-
-function eq(){
-    // make equal function, and make the eventlistener call this
-    secondNum = parseInt(document.getElementById('current').innerText);
-    operate(firstNum, secondNum, oper);
-    lastOperation();
-}
-
-
-
-function updateValue(i){
-    const value = document.getElementById('current').innerText;
-    if (newNumber === false){
-        value === '0' ? document.getElementById('current').innerText = i :
-                     document.getElementById('current').innerText += i;
+    if (newNumber === true){
+        previous.innerText = firstNum + o;
     } else {
-        document.getElementById('current').innerText = i;
-        newNumber = false;
+        previous.innerText = firstNum + o + displayValue;
     }
     
 }
 
+function eq(){
+    operate(firstNum, displayValue, oper);
+    lastOperation();
+    displayValue = document.getElementById('current').innerText;
+    newNumber = true;
+}
 
+function updateValue(i){
+    if (newNumber === false){
+        displayValue === '0' ? document.getElementById('current').innerText = i :
+        document.getElementById('current').innerText += i;
+    } else {
+        document.getElementById('current').innerText = i;
+        newNumber = false;
+    }
+    displayValue = document.getElementById('current').innerText;
+}
 
 function add(a, b){
-    document.getElementById('current').innerText = a + b;
+    document.getElementById('current').innerText = parseInt(a) + parseInt(b);
 }
 
 function subtract(a, b){
-    document.getElementById('current').innerText = a - b;
+    document.getElementById('current').innerText = parseInt(a) - parseInt(b);
 }
 
 function multiply(a, b){
-    document.getElementById('current').innerText = a * b;
+    document.getElementById('current').innerText = parseInt(a) * parseInt(b);
 }
 
 function divide(a, b){
-    document.getElementById('current').innerText = a / b;
+    document.getElementById('current').innerText = parseInt(a) / parseInt(b);
 }
 
 function operate(a, b, op){
