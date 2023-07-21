@@ -1,4 +1,4 @@
-let firstNum, secondNum, displayValue, oper;
+let firstNum, secondNum, displayValue, oper, prevOper, prevNum;
 let newNumber = false;
 oper = '';
 displayValue = '0';
@@ -70,10 +70,22 @@ function lastOperation(){
 }
 
 function eq(){
-    operate(firstNum, displayValue, oper);
+    if (newNumber){
+        operate(displayValue, prevNum, prevOper)
+    } else {
+        operate(firstNum, displayValue, oper);
+    }
+    
+    // for when = is pressed multiple times, so it can repeat last input
+    // need to work on lastOperation, so it shows correct information
+    if (oper !== ''){
+        prevOper = oper;
+        prevNum = displayValue;
+    }
     lastOperation();
     displayValue = document.getElementById('current').innerText;
     newNumber = true;
+    
     oper = '';
 }
 
