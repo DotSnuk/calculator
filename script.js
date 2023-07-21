@@ -85,7 +85,6 @@ function eq(){
     lastOperation();
     displayValue = document.getElementById('current').innerText;
     newNumber = true;
-    
     oper = '';
 }
 
