@@ -29,7 +29,7 @@ ops.forEach(o => {
 const clear = document.querySelector('#clear');
 clear.addEventListener('click', () => {
     document.getElementById('current').innerText = '0';
-    document.getElementById('previous').innerText = '';
+    document.getElementById('previous').innerText = '0';
     oper = '';
     displayValue = '0';
     firstNum = '';
@@ -74,6 +74,7 @@ function eq(){
     lastOperation();
     displayValue = document.getElementById('current').innerText;
     newNumber = true;
+    oper = '';
 }
 
 function updateValue(i){
