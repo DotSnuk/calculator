@@ -17,20 +17,22 @@ ops.forEach(o => {
     o.addEventListener('click', e => {
         if (oper !== '' && newNumber === false){
             eq();
-            lastOperation();
         }
         firstNum = displayValue;
         oper = e.target.id;
         newNumber = true;
+        lastOperation();
     })
 })
 
 // clear
 const clear = document.querySelector('#clear');
 clear.addEventListener('click', () => {
-    document.getElementById('current').innerText = 0;
+    document.getElementById('current').innerText = '0';
     document.getElementById('previous').innerText = '';
     oper = '';
+    displayValue = '0';
+    firstNum = '';
     newNumber = false;
 })
 
