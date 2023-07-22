@@ -45,28 +45,43 @@ equal.addEventListener('click', () => {
 function lastOperation(){
     const previous = document.querySelector('#previous');
     let o;
-    switch(oper){
-        case 'add':
-            o = '+';
-            break;
-        case 'sub':
-            o = '-';
-            break;
-        case 'mul':
-            o = 'x';
-            break;
-        case 'div':
-            o = '/';
-            break;
-        default:
-            break;
-    }
+    // switch(oper){
+    //     case 'add':
+    //         o = '+';
+    //         break;
+    //     case 'sub':
+    //         o = '-';
+    //         break;
+    //     case 'mul':
+    //         o = 'x';
+    //         break;
+    //     case 'div':
+    //         o = '/';
+    //         break;
+    //     default:
+    //         break;
+    // }
     if (newNumber === true){
         previous.innerText = firstNum + o;
     } else {
         previous.innerText = firstNum + o + displayValue;
     }
     
+}
+
+function conOpToString(o){
+    switch(o){
+        case 'add':
+            return '+';
+        case 'sub':
+            return '-';
+        case 'mul':
+            return 'x';
+        case 'div':
+            return '/';
+        default:
+            break;
+    }
 }
 
 function eq(){
