@@ -18,6 +18,8 @@ ops.forEach(o => {
         if (oper !== '' && newNumber === false){
             eq();
         }
+        prevNum = '';
+        prevOper = '';
         firstNum = displayValue;
         oper = e.target.id;
         newNumber = true;
@@ -44,29 +46,13 @@ equal.addEventListener('click', () => {
 
 function lastOperation(){
     const previous = document.querySelector('#previous');
-    let o;
-    // switch(oper){
-    //     case 'add':
-    //         o = '+';
-    //         break;
-    //     case 'sub':
-    //         o = '-';
-    //         break;
-    //     case 'mul':
-    //         o = 'x';
-    //         break;
-    //     case 'div':
-    //         o = '/';
-    //         break;
-    //     default:
-    //         break;
-    // }
-    if (newNumber === true){
-        previous.innerText = firstNum + o;
+    if (newNumber === true && prevOper !== ''){
+        previous.innerText = displayValue + conOpToString(prevOper) + prevNum;
+    } else if (newNumber === true) {
+        previous.innerText = firstNum + conOpToString(oper);
     } else {
-        previous.innerText = firstNum + o + displayValue;
+        previous.innerText = firstNum + conOpToString(oper) + displayValue
     }
-    
 }
 
 function conOpToString(o){
