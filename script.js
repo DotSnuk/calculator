@@ -33,6 +33,8 @@ clear.addEventListener('click', () => {
     document.getElementById('current').innerText = '0';
     document.getElementById('previous').innerText = '0';
     oper = '';
+    prevNum = '';
+    prevOper = '';
     displayValue = '0';
     firstNum = '';
     newNumber = false;
@@ -73,12 +75,13 @@ function conOpToString(o){
 function eq(){
     if (newNumber){
         operate(displayValue, prevNum, prevOper)
+    } else if (oper == '') {
+        return;
     } else {
         operate(firstNum, displayValue, oper);
     }
     
     // for when = is pressed multiple times, so it can repeat last input
-    // need to work on lastOperation, so it shows correct information
     if (oper !== ''){
         prevOper = oper;
         prevNum = displayValue;
