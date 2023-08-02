@@ -38,6 +38,7 @@ clear.addEventListener('click', () => {
     displayValue = '0';
     firstNum = '';
     newNumber = false;
+    restoreFontSize();
 })
 
 // equal
@@ -101,6 +102,17 @@ function updateValue(i){
         newNumber = false;
     }
     displayValue = document.getElementById('current').innerText;
+    if (displayValue.length >= 12){
+        reduceFontSize();
+    }
+}
+
+function reduceFontSize(){
+    document.getElementById('current').style.fontSize = '24px';  
+}
+
+function restoreFontSize(){
+    document.getElementById('current').style.fontSize = '36px';
 }
 
 function add(a, b){
@@ -116,6 +128,13 @@ function multiply(a, b){
 }
 
 function divide(a, b){
+    if (parseInt(b) === 0){
+        // need to check if there is decimal as well
+        reduceFontSize();
+        document.getElementById('current').innerText = "Error, divide by 0";
+        displayValue = '0';
+        return;
+    }
     document.getElementById('current').innerText = parseInt(a) / parseInt(b);
 }
 
