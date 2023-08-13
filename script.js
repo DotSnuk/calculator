@@ -38,7 +38,7 @@ clear.addEventListener('click', () => {
     displayValue = '0';
     firstNum = '';
     newNumber = false;
-    restoreFontSize();
+    changeFontSize(36);
 })
 
 // equal
@@ -89,11 +89,13 @@ function eq(){
     }
     lastOperation();
     displayValue = document.getElementById('current').innerText;
+    checkFontSize();
     newNumber = true;
     oper = '';
 }
 
 function updateValue(i){
+    
     if (newNumber === false){
         displayValue === '0' ? document.getElementById('current').innerText = i :
         document.getElementById('current').innerText += i;
@@ -102,17 +104,19 @@ function updateValue(i){
         newNumber = false;
     }
     displayValue = document.getElementById('current').innerText;
+    checkFontSize();
+}
+
+function checkFontSize(){
     if (displayValue.length >= 12){
-        reduceFontSize();
-    }
+        changeFontSize(24);
+     } else if (window.getComputedStyle(document.getElementById('current')).fontSize === '24px' && displayValue.length < 12){
+            changeFontSize(36);
+     }
 }
 
-function reduceFontSize(){
-    document.getElementById('current').style.fontSize = '24px';  
-}
-
-function restoreFontSize(){
-    document.getElementById('current').style.fontSize = '36px';
+function changeFontSize(i){
+    document.getElementById('current').style.fontSize = i + 'px';  
 }
 
 function add(a, b){
@@ -130,7 +134,7 @@ function multiply(a, b){
 function divide(a, b){
     if (parseInt(b) === 0){
         // need to check if there is decimal as well
-        reduceFontSize();
+        changeFontSize(24);
         document.getElementById('current').innerText = "Error, divide by 0";
         displayValue = '0';
         return;
