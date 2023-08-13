@@ -2,6 +2,19 @@ let firstNum, secondNum, displayValue, oper, prevOper, prevNum;
 let newNumber = false;
 oper = '';
 displayValue = '0';
+// working on getting keyboard support
+document.addEventListener('keydown', (event) => {
+    var name = event.key;
+    var code = event.code;
+    // console.log(parseInt(name));
+    // if ((parseInt(event.name) = 0) || event.name <= 9){
+    //     alert(`Key pressed ${name} \r\n\ Key code vale ${code}`);
+    // }
+    if (Number.isInteger(parseInt(name))){
+        updateValue(parseInt(name));
+        // works
+    }
+})
 
 // numbers
 const numbs = document.querySelectorAll('.number');
