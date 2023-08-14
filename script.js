@@ -6,10 +6,32 @@ displayValue = '0';
 document.addEventListener('keydown', (event) => {
     var name = event.key;
     var code = event.code;
-    
-    if (Number.isInteger(parseInt(name))){
-        updateValue(parseInt(name));
+    if (name !== 'Shift'){
+        if (Number.isInteger(parseInt(name))){
+            updateValue(parseInt(name));
+        }
+        switch (name){
+            case '=':
+                eq();
+            case 'Enter':
+                eq();
+            case '/':
+                oper = 'div';
+            case '-':
+                if (oper !== '' && newNumber === false){
+                    eq();
+                }
+                prevNum = '';
+                prevOper = '';
+                firstNum = displayValue;
+                oper = 'sub';
+                newNumber = true;
+                lastOperation();
+        }
+        console.log('name: ' + name + ' code: ' + code)
     }
+    
+    
 })
 
 // numbers
@@ -55,6 +77,10 @@ const equal = document.querySelector('#equal');
 equal.addEventListener('click', () => {
     eq();
 })
+
+function useOperator(o){
+    
+}
 
 function lastOperation(){
     const previous = document.querySelector('#previous');
