@@ -6,13 +6,9 @@ displayValue = '0';
 document.addEventListener('keydown', (event) => {
     var name = event.key;
     var code = event.code;
-    // console.log(parseInt(name));
-    // if ((parseInt(event.name) = 0) || event.name <= 9){
-    //     alert(`Key pressed ${name} \r\n\ Key code vale ${code}`);
-    // }
+    
     if (Number.isInteger(parseInt(name))){
         updateValue(parseInt(name));
-        // works
     }
 })
 
