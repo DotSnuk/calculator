@@ -18,15 +18,7 @@ document.addEventListener('keydown', (event) => {
             case '/':
                 oper = 'div';
             case '-':
-                if (oper !== '' && newNumber === false){
-                    eq();
-                }
-                prevNum = '';
-                prevOper = '';
-                firstNum = displayValue;
-                oper = 'sub';
-                newNumber = true;
-                lastOperation();
+                useOperator('sub');
         }
         console.log('name: ' + name + ' code: ' + code)
     }
@@ -46,15 +38,16 @@ numbs.forEach(num => {
 const ops = document.querySelectorAll('.op');
 ops.forEach(o => {
     o.addEventListener('click', e => {
-        if (oper !== '' && newNumber === false){
-            eq();
-        }
-        prevNum = '';
-        prevOper = '';
-        firstNum = displayValue;
-        oper = e.target.id;
-        newNumber = true;
-        lastOperation();
+        // if (oper !== '' && newNumber === false){
+        //     eq();
+        // }
+        // prevNum = '';
+        // prevOper = '';
+        // firstNum = displayValue;
+        // oper = e.target.id;
+        // newNumber = true;
+        // lastOperation();
+        useOperator(e.target.id);
     })
 })
 
@@ -79,7 +72,15 @@ equal.addEventListener('click', () => {
 })
 
 function useOperator(o){
-    
+    if (oper !== '' && newNumber === false){
+        eq();
+    }
+    prevNum = '';
+    prevOper = '';
+    firstNum = displayValue;
+    oper = o;
+    newNumber = true;
+    lastOperation();
 }
 
 function lastOperation(){
