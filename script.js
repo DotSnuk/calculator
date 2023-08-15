@@ -13,12 +13,18 @@ document.addEventListener('keydown', (event) => {
         switch (name){
             case '=':
                 eq();
+                break;
             case 'Enter':
                 eq();
-            case '/':
-                oper = 'div';
+                break;
             case '-':
                 useOperator('sub');
+                break;
+            case '+':
+                useOperator('add');
+                break;
+            default:
+                break;
         }
         console.log('name: ' + name + ' code: ' + code)
     }
