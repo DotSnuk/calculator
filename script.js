@@ -2,7 +2,7 @@ let firstNum, secondNum, displayValue, oper, prevOper, prevNum;
 let newNumber = false;
 oper = '';
 displayValue = '0';
-// working on getting keyboard support
+
 document.addEventListener('keydown', (event) => {
     var name = event.key;
     var code = event.code;
