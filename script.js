@@ -23,6 +23,13 @@ document.addEventListener('keydown', (event) => {
             case '+':
                 useOperator('add');
                 break;
+            case '/':
+                event.preventDefault();
+                useOperator('div');
+                break;
+            case '*':
+                useOperator('mul');
+                break;
             default:
                 break;
         }
