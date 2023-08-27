@@ -152,6 +152,7 @@ function checkDecimal(){
     const numb = document.getElementById('current').innerText;
     if (!numb.includes('.')){
         addDecimal();
+        displayValue = document.getElementById('current').innerText;
     }
 }
 
@@ -160,7 +161,6 @@ function addDecimal(){
 }
 
 function updateValue(i){
-    
     if (newNumber === false){
         displayValue === '0' ? document.getElementById('current').innerText = i :
         document.getElementById('current').innerText += i;
@@ -185,16 +185,27 @@ function changeFontSize(i){
 }
 
 function add(a, b){
-    
-    document.getElementById('current').innerText = parseInt(a) + parseInt(b);
+    if (a.includes('.') || b.includes('.')){
+        document.getElementById('current').innerText = parseFloat(a) + parseFloat(b);
+    } else {
+        document.getElementById('current').innerText = parseInt(a) + parseInt(b);
+    }
 }
 
 function subtract(a, b){
-    document.getElementById('current').innerText = parseInt(a) - parseInt(b);
+    if (a.includes('.') || b.includes('.')){
+        document.getElementById('current').innerText = parseFloat(a) - parseFloat(b);
+    } else {
+        document.getElementById('current').innerText = parseInt(a) - parseInt(b);
+    }
 }
 
 function multiply(a, b){
-    document.getElementById('current').innerText = parseInt(a) * parseInt(b);
+    if (a.includes('.') || b.includes('.')){
+        document.getElementById('current').innerText = parseFloat(a) * parseFloat(b);
+    } else {
+        document.getElementById('current').innerText = parseInt(a) * parseInt(b);
+    }
 }
 
 function divide(a, b){
@@ -205,7 +216,11 @@ function divide(a, b){
         displayValue = '0';
         return;
     }
-    document.getElementById('current').innerText = parseInt(a) / parseInt(b);
+    if (a.includes('.') || b.includes('.')){
+        document.getElementById('current').innerText = parseFloat(a) / parseFloat(b);
+    } else {
+        document.getElementById('current').innerText = parseInt(a) / parseInt(b);
+    }
 }
 
 function operate(a, b, op){
