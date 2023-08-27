@@ -64,6 +64,11 @@ ops.forEach(o => {
     })
 })
 
+const deci = document.querySelector('#dot');
+deci.addEventListener('click', () => {
+    checkDecimal();
+})
+
 // clear
 const clear = document.querySelector('#clear');
 clear.addEventListener('click', () => {
@@ -143,6 +148,17 @@ function eq(){
     oper = '';
 }
 
+function checkDecimal(){
+    const numb = document.getElementById('current').innerText;
+    if (!numb.includes('.')){
+        addDecimal();
+    }
+}
+
+function addDecimal(){
+    document.getElementById('current').innerText += '.';
+}
+
 function updateValue(i){
     
     if (newNumber === false){
@@ -169,6 +185,7 @@ function changeFontSize(i){
 }
 
 function add(a, b){
+    
     document.getElementById('current').innerText = parseInt(a) + parseInt(b);
 }
 
