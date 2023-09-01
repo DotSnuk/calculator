@@ -30,6 +30,9 @@ document.addEventListener('keydown', (event) => {
             case '*':
                 useOperator('mul');
                 break;
+            case '.':
+                checkDecimal();
+                break;
             default:
                 break;
         }
@@ -142,6 +145,9 @@ function eq(){
         prevNum = displayValue;
     }
     lastOperation();
+
+    // check how many decimals
+
     displayValue = document.getElementById('current').innerText;
     checkFontSize();
     newNumber = true;
@@ -152,12 +158,12 @@ function checkDecimal(){
     const numb = document.getElementById('current').innerText;
     if (!numb.includes('.')){
         addDecimal();
-        displayValue = document.getElementById('current').innerText;
     }
 }
 
 function addDecimal(){
     document.getElementById('current').innerText += '.';
+    displayValue = document.getElementById('current').innerText;
 }
 
 function updateValue(i){
