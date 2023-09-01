@@ -36,7 +36,7 @@ document.addEventListener('keydown', (event) => {
             default:
                 break;
         }
-        console.log('name: ' + name + ' code: ' + code)
+        //console.log('name: ' + name + ' code: ' + code)
     }
     
     
@@ -147,11 +147,21 @@ function eq(){
     lastOperation();
 
     // check how many decimals
+    if (document.getElementById('current').innerText.includes('.')){
+        checkDecLength();
+    }
 
     displayValue = document.getElementById('current').innerText;
     checkFontSize();
     newNumber = true;
     oper = '';
+}
+
+function checkDecLength(){
+    const numbSplit = document.getElementById('current').innerText.split('.');
+    if (numbSplit[1].length >= 5){
+        document.getElementById('current').innerText = parseFloat(document.getElementById('current').innerText).toFixed(5);
+    };
 }
 
 function checkDecimal(){
