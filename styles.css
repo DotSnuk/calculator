@@ -61,9 +61,10 @@ body {
     background-color: rgba(224, 224, 224, 0.637);
     
 }
-#clear {
+#clear, #backspace {
     font-size: 22px;
 }
+
 
 
 h1 {
