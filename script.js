@@ -38,8 +38,6 @@ document.addEventListener('keydown', (event) => {
         }
         //console.log('name: ' + name + ' code: ' + code)
     }
-    
-    
 })
 
 // numbers
@@ -54,15 +52,6 @@ numbs.forEach(num => {
 const ops = document.querySelectorAll('.op');
 ops.forEach(o => {
     o.addEventListener('click', e => {
-        // if (oper !== '' && newNumber === false){
-        //     eq();
-        // }
-        // prevNum = '';
-        // prevOper = '';
-        // firstNum = displayValue;
-        // oper = e.target.id;
-        // newNumber = true;
-        // lastOperation();
         useOperator(e.target.id);
     })
 })
@@ -92,6 +81,11 @@ equal.addEventListener('click', () => {
     eq();
 })
 
+const backSpace = document.querySelector('#backspace');
+backSpace.addEventListener('click', () => {
+    useBackspace();
+})
+
 function useOperator(o){
     if (oper !== '' && newNumber === false){
         eq();
@@ -102,6 +96,18 @@ function useOperator(o){
     oper = o;
     newNumber = true;
     lastOperation();
+}
+
+function useBackspace(){
+    let arrayValue = document.getElementById('current').innerText.split('');
+    if (arrayValue.length > 1){
+        arrayValue.pop();
+        document.getElementById('current').innerText = arrayValue.join('');
+    } else {
+        document.getElementById('current').innerText = '0';
+    }
+    displayValue = document.getElementById('current').innerText;
+    console.log(arrayValue);
 }
 
 function lastOperation(){
